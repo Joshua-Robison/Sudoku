@@ -1,0 +1,4 @@
+name = "Sudoku"
+uuid = "4728042e-0637-44b9-a466-a639d62d9738"
+authors = ["Joshua-Robison"]
+version = "0.1.0"
