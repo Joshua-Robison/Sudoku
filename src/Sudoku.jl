@@ -1,4 +1,3 @@
-# Sudoku: Module Definition
 module Sudoku
 
 include("puzzle.jl")

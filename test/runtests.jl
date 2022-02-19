@@ -1,8 +1,7 @@
-# Sudoku: Test Package
 using Test
 using Sudoku
 
-# Define a Sudoku Puzzle
+# Sudoku Puzzle
 board = [ 5 3 0 0 7 0 0 0 0;
           6 0 0 1 9 5 0 0 0;
           0 9 8 0 0 0 0 6 0;
@@ -13,10 +12,7 @@ board = [ 5 3 0 0 7 0 0 0 0;
           0 0 0 4 1 9 0 0 5;
           0 0 0 0 8 0 0 7 9 ]
 
-# Initialize Puzzle
-puzzle = Puzzle(board);
-
-# Define Sudoku Solution
+# Sudoku Solution
 solution = [ 5 3 4 6 7 8 9 1 2;
              6 7 2 1 9 5 3 4 8;
              1 9 8 3 4 2 5 6 7;
@@ -27,8 +23,6 @@ solution = [ 5 3 4 6 7 8 9 1 2;
              2 8 7 4 1 9 6 3 5;
              3 4 5 2 8 6 1 7 9 ]
 
-# Solve the Sudoku Puzzle
+puzzle = Puzzle(board);
 solve(puzzle);
-
-# Verify Solution
 @test puzzle.board == solution

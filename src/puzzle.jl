@@ -1,7 +1,5 @@
-# Sudoku: Puzzle Definition
 export Puzzle
 
-# Puzzle Structure
 struct Puzzle
     board::Matrix{Int} # n x n matrix
     function Puzzle(board::Matrix{Int})
@@ -11,7 +9,6 @@ struct Puzzle
     end
 end
 
-# Puzzle Interfaces
 function Base.getindex(p::Puzzle, i::Int, j::Int)::Int
     rows, cols = size(p.board)
     if (1 ≤ i ≤ rows) && (1 ≤ j ≤ cols)
@@ -29,22 +26,21 @@ function Base.setindex!(p::Puzzle, n::Int, i::Int, j::Int)
     end
 end
 
-# Display Sudoku Puzzle
 function Base.show(io::IO, p::Puzzle)::Nothing
-    println("\033[2J") # clear repl
-    println("\033[$(displaysize(stdout)[1])A")
+    println(io, "\033[2J") # clear repl
+    println(io, "\033[$(displaysize(stdout)[1])A")
     rows, cols = size(p.board)
     for i in 1:rows
         for j in 1:cols
-            print(" $(p.board[i,j]) ")
+            print(io, " $(p.board[i,j]) ")
             if (j % 3 == 0) && (j != cols)
-                print("|")
+                print(io, "|")
             end
         end
-        println() # new line
+        println(io)
         if (i % 3 == 0) && (i != rows)
-            # draw border lines
-            println(("-"^9 * "+")^2 * "-"^9)
+            # border lines
+            println(io, ("-"^9 * "+")^2 * "-"^9)
         end
     end
 end

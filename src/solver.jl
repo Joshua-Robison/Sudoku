@@ -1,13 +1,6 @@
-# Sudoku: Recursion + Backtracking
 export solve
 
-# Helper Function
 function possible(p::Puzzle, x::Int, y::Int, n::Int)::Bool
-    #=
-    This function checks that the number n
-    is not already in the row x, column y
-    or the 3 x 3 sub-grid of the board.
-    =#
     for j in 1:9
         if p[x,j] == n
             return false;
@@ -31,7 +24,6 @@ function possible(p::Puzzle, x::Int, y::Int, n::Int)::Bool
     return true;
 end
 
-# Solve the Sudoku Puzzle
 function solve(p::Puzzle)::Bool
     for i in 1:9
         for j in 1:9
@@ -43,7 +35,7 @@ function solve(p::Puzzle)::Bool
                         if solve(p)
                             return true;
                         else
-                            # backtrack
+                            # backtracking
                             p[i,j] = 0
                         end
                     end
